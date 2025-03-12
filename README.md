@@ -61,7 +61,7 @@ This document provides comprehensive instructions for deploying, installing, and
 
 ## Deployment
 
- `python app.py`
+ `python3 src/app.py`
 
 
 ### Security Considerations
@@ -102,7 +102,8 @@ This document provides comprehensive instructions for deploying, installing, and
     "history": [
       ["Previous user message", "Bot response"],
       ["Another message", "Another response"]
-    ]
+    ],
+    "user_name": "User's input name"
   }
   ```
 - **Success Response**:
@@ -129,7 +130,8 @@ This document provides comprehensive instructions for deploying, installing, and
     "history": [
       ["Previous user message", "Bot response"],
       ["Another message", "Another response"]
-    ]
+    ],
+    "user_name": "User's input name"
   }
   ```
 - **Success Response**:
@@ -204,13 +206,71 @@ Modify the `chat_with_history` method in the chatbot classes to customize error 
 
 ---
 
-## Deployment
+## Connect to API
 
-### Production Setup
+Python code example:
+```python
+import requests
+import json
 
-streamlit run src/streamlit_app.py --server.port=5000 --server.headless=true
+BASE_URL = "https://chatbot-n.onrender.com"
 
+def get_jwt_token(username, password):
+    """Obtains a JWT token from the /login endpoint."""
+    login_url = f"{BASE_URL}/login"
+    payload = {
+        "username": username,
+        "password": password
+    }
+    headers = {"Content-Type": "application/json"}
+    try:
+        response = requests.post(login_url, data=json.dumps(payload), headers=headers)
+        response.raise_for_status()
+        data = response.json()
+        return data.get("access_token")
+    except requests.exceptions.RequestException as e:
+        print(f"Error during login: {e}")
+        return None
 
-## Customization
+def chat_with_woodxel(jwt_token, user_name, user_input, chat_history):
+    """Sends a message to the /woodxel_chatbot endpoint and returns the response."""
+    chatbot_url = f"{BASE_URL}/woodxel_chatbot"
+    payload = {
+        "input": user_input,
+        "history": chat_history,
+        "user_name": user_name
+    }
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {jwt_token}"
+    }
+    try:
+        response = requests.post(chatbot_url, data=json.dumps(payload), headers=headers)
+        response.raise_for_status()
+        data = response.json()
+        return data.get("response")
+    except requests.exceptions.RequestException as e:
+        print(f"Error during chatbot interaction: {e}")
+        return None
 
-
+def chat_with_lignum(jwt_token, user_name, user_input, chat_history):
+    """Sends a message to the /lignum_chatbot endpoint and returns the response."""
+    chatbot_url = f"{BASE_URL}/lignum_chatbot"
+    payload = {
+        "input": user_input,
+        "history": chat_history,
+        "user_name": user_name
+    }
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {jwt_token}"
+    }
+    try:
+        response = requests.post(chatbot_url, data=json.dumps(payload), headers=headers)
+        response.raise_for_status()
+        data = response.json()
+        return data.get("response")
+    except requests.exceptions.RequestException as e:
+        print(f"Error during chatbot interaction: {e}")
+        return None
+```
