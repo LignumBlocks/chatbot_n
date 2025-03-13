@@ -8,3 +8,4 @@ langchain-google-genai==2.0.11
 langchain-pinecone==0.2.3
 pinecone-notebooks==0.1.1
 streamlit==1.42.2
+flask_cors
