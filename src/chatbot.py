@@ -111,12 +111,15 @@ class WoodxelChatbot(Chatbot):
             else: context += f"Unknown source: {chunk.page_content}\n\n"
         # print(f"Context: {context}")        
         if language: language = f"The user question is in {language}. Your answer must be only in {language}.\n"
+        # if len(chat_history) < 2:
+        extra_info = f"You can refer to the user as: {self.user_name}. That was the name they provided. But avoid overusing the name; don't use it in all interactions. {language}"
+        # else: extra_info = language
+        
         system_prompt = PROMPTS["woodxel_system_prompt"]
     
         answer_prompt_template = PROMPTS["woodxel_prompt"]  
         answer_prompt = answer_prompt_template.format(context=context, chat_history=chat_history, 
-                                                      user_name=self.user_name, extra_info=language, 
-                                                      question=user_input)       
+                                                      extra_info=extra_info, question=user_input)       
                  
         # print(f"Prompt: {system_prompt}\n{answer_prompt}")
         for attempt in range(MAX_RETRIES):
@@ -147,12 +150,15 @@ class LignumChatbot(Chatbot):
             else: context += f"Unknown source: {chunk.page_content}\n\n"
         # print(f"Context: {context}")
         if language: language = f"The user question is in {language}. Your answer must be only in {language}.\n"
+        # if len(chat_history) < 2:
+        extra_info = f"You can refer to the user as: {self.user_name}. That was the name they provided. But avoid overusing the name; don't use it in all interactions. {language}"
+        # else: extra_info = language
+        
         system_prompt = PROMPTS["lignum_system_prompt"]
     
         answer_prompt_template = PROMPTS["lignum_prompt"]  
         answer_prompt = answer_prompt_template.format(context=context, chat_history=chat_history, 
-                                                      user_name=self.user_name, extra_info=language, 
-                                                      question=user_input)    
+                                                      extra_info=extra_info, question=user_input)    
         for attempt in range(MAX_RETRIES):
             try:         
                 result = self.llm.invoke(f"{system_prompt}\n{answer_prompt}").content
