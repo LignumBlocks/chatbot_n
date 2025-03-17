@@ -111,7 +111,7 @@ class WoodxelChatbot(Chatbot):
             else: context += f"Unknown source: {chunk.page_content}\n\n"
         # print(f"Context: {context}")        
         if language: language = f"The user question is in {language}. Your answer must be only in {language}.\n"
-        if len(chat_history) < 2:
+        if len(chat_history) < 3:
             extra_info = f"You can refer to the user as: {self.user_name}. That was the name they provided. But avoid overusing the name; don't use it in all interactions. {language}"
         else: extra_info = language
         
@@ -150,7 +150,7 @@ class LignumChatbot(Chatbot):
             else: context += f"Unknown source: {chunk.page_content}\n\n"
         # print(f"Context: {context}")
         if language: language = f"The user question is in {language}. Your answer must be only in {language}.\n"
-        if len(chat_history) < 2:
+        if len(chat_history) < 3:
             extra_info = f"You can refer to the user as: {self.user_name}. That was the name they provided. But avoid overusing the name; don't use it in all interactions. {language}"
         else: extra_info = language
         
