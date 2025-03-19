@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
@@ -11,6 +12,7 @@ load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
+CORS(app)
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', os.urandom(32).hex())
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1)
     # 'JWT_TOKEN_LOCATION': ['headers', 'cookies'],
