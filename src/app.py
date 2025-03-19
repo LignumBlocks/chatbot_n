@@ -83,7 +83,7 @@ def lignum_chatbot():
 # Protected endpoint: summarize_conversation
 @app.route('/summarize_conversation', methods=['POST'])
 @jwt_required()
-def lignum_chatbot():
+def summarize_conversation():
     data = request.get_json()
     print(data)
     if not data or 'history' not in data:
