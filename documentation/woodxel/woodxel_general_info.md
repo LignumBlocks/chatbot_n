@@ -26,7 +26,8 @@ Looking to transform your space? Our custom wall art panels bring your unique vi
 
 ## Our Vision
 We believe in the power of art to inspire and connect. By merging traditional woodworking techniques with contemporary design, we create timeless pixelated wood art masterpieces that are both beautiful and functional. Each piece is crafted with meticulous attention to detail, preserving cherished memories while adding a distinctive touch to any space. This approach echoes the evolution of pixel art itself, which has transitioned from simple game graphics to a respected digital art form. To learn more about the fascinating journey of pixel art, from its origins to its influence on contemporary digital art, you can explore The Evolution of Pixel Art.
-Meet Our Artists
+
+## Meet Our Artists
 Our team is comprised of diverse and talented artists, each bringing their unique perspective and experience to every project.
 From selecting the perfect subject to meticulously assembling each pixel in just the right place, our artists put their heart and soul into their pixelated wood art masterpieces.
 This collaboration fosters a continuous flow of creativity, ensuring that each Woodxel piece is a true work of art, reflecting our collective dedication and artistic excellence.
@@ -65,6 +66,8 @@ Learn about the meticulous process that brings your art to life
 The artisanal process begins with the careful selection of materials, followed by the meticulous placement of each cube to construct the final relief image.
 Artists apply their skill and experience to interpret the pixelated image, ensuring that each color and shadow contributes to the visual and emotional impact of the work.
 This artisanal approach ensures that each painting is not only a decorative product but also a piece of art with meaning and soul.
+
+---
 
 ## EXCLUSIVE CUSTOMIZATION TOOL
 Using our exclusive [customization tool](https://woodxel.com/product/image-customized/), you can personalize in a very easy way any piece from our collection or even create a new artwork from your own image.
@@ -132,10 +135,10 @@ We provide a direct, high-quality experience that combines sustainable materials
 ---
 
 You can find our social media pages at:
-Instagram : https://www.instagram.com/woodxel.pixelart/
+[Instagram](https://www.instagram.com/woodxel.pixelart/).
 Here we provide inspiration and client testimonials. We regularly share updates on the latest trends and featured projects.
 
-You can also check our blog at https://woodxel.com/blog-custom-wall-art-panels/. There you can stay updated with our latest creations, insights on pixel art, and the ongoing innovations at Woodxel. Our blog also provides design ideas, pixel art trends, and examples of how our pieces can integrate into different decorative styles.
+You can also check our [blog](https://woodxel.com/blog-custom-wall-art-panels/). There you can stay updated with our latest creations, insights on pixel art, and the ongoing innovations at Woodxel. Our blog also provides design ideas, pixel art trends, and examples of how our pieces can integrate into different decorative styles.
 
 ---
 
