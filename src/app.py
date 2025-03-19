@@ -1,19 +1,16 @@
 from flask import Flask, jsonify, request
-from flask_cors import CORS
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
 import os
 from dotenv import load_dotenv
 
-from chatbot import WoodxelChatbot, LignumChatbot
+from chatbot import WoodxelChatbot, LignumChatbot, LLM
 
 load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app)
-
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', os.urandom(32).hex())
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1)
     # 'JWT_TOKEN_LOCATION': ['headers', 'cookies'],
@@ -55,6 +52,7 @@ def login():
 @jwt_required()
 def woodxel_chatbot():
     data = request.get_json()
+    print(data)
     if not data or 'input' not in data or 'history' not in data or 'user_name' not in data:
         return jsonify({"message": "Missing required fields"}), 400
     try:
@@ -70,6 +68,7 @@ def woodxel_chatbot():
 @jwt_required()
 def lignum_chatbot():
     data = request.get_json()
+    print(data)
     if not data or 'input' not in data or 'history' not in data or 'user_name' not in data:
         return jsonify({"message": "Missing required fields"}), 400
     try:
@@ -80,6 +79,22 @@ def lignum_chatbot():
         print(e)
         return jsonify({"error": f"Internal server error: {str(e)}"}), 500
 
+
+# Protected endpoint: summarize_conversation
+@app.route('/summarize_conversation', methods=['POST'])
+@jwt_required()
+def lignum_chatbot():
+    data = request.get_json()
+    print(data)
+    if not data or 'history' not in data:
+        return jsonify({"message": "Missing required fields: 'history'"}), 400
+    try:
+        chat = LLM()
+        result = chat.run(data['history'])
+        return jsonify({"response": result}), 200
+    except Exception as e:
+        print(e)
+        return jsonify({"error": f"Internal server error: {str(e)}"}), 500
 
 # Run the Flask app
 if __name__ == '__main__':

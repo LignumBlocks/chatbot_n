@@ -49,5 +49,9 @@ You can refer to the user as: {user_name}. That was the name they provided. But 
 If there is nothing in the context relevant to the question at hand provide the support email: info@lignumcd.com.
 {extra_info}
 User question: {question}""",
-    
+    "summarize":"""You will be given a chat history. We need you to extract the principal ideas and make a text that explains summarized the conversation.
+Conversation history: 
+{chat_history}
+------------
+Text Summary:"""
 }

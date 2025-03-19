@@ -21,6 +21,23 @@ PINECONE_LIGNUM_NS = "lignum-info"
 EMBEDDING_MODELS = ['models/embedding-001', 'models/text-embedding-004']
 MODELS = ['gemini-1.5-flash-8b', 'gemini-2.0-flash-lite']
 
+class LLM:
+    def __init__(self, model_name: str = "gemini-2.0-flash-lite", temperature: float = 0.8):
+        self.model_name = model_name if model_name else MODELS[0]
+        self.temperature = temperature
+        self.llm = ChatGoogleGenerativeAI(model=self.model_name, temperature=self.temperature)
+        
+    def run(self, user_input, system_prompt='', max_retries=MAX_RETRIES):
+        for attempt in range(max_retries):
+            try:
+                summarize_prompt_template = PROMPTS["summarize"]
+                summarize_prompt = summarize_prompt_template.format(chat_history=user_input)
+                return self.llm.invoke(summarize_prompt).content
+            except Exception as e:
+                if attempt == max_retries - 1:
+                    raise RuntimeError(f"LLM invocation failed after {max_retries} attempts") from e
+                time.sleep(RETRY_DELAY * (attempt + 1))
+            
 class Chatbot:
     namespace = 'default'
     def __init__(self, user_name, model_name: str = "gemini-2.0-flash-lite", temperature: float = 0.6):
