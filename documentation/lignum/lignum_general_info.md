@@ -22,6 +22,7 @@ Visit our portfolio to see some of the magic we’ve created for our clients, an
 The One-Stop-Shop for all your Custom Woodwork Needs.
 Founded 13 years ago, our crew has more than 50 years of combined experience working for clients like Hilton, Marriot, and Ritz Carlton, and many Hotels, Bars, and Restaurants in the USA.
 
+Our workshop is situated in Medley, Florida. The address is 1375 NW 97 Ave Suite 3 Doral, FL, United States, Florida 33172.
 
 ---
 
@@ -39,7 +40,7 @@ We invite you to look at our portfolio of projects. Don’t hesitate to contact 
 Lignum is a Miami-based company specializing in bespoke custom woodwork for residential and commercial projects. With over 15 years of experience, we have collaborated with esteemed clients such as Hilton, Marriott, and Ritz Carlton.
 
 2. Where is Lignum located?
-Our workshop is situated in Medley, Florida.
+Our workshop is situated in Medley, Florida. The address is 1375 NW 97 Ave Suite 3 Doral, FL, United States, Florida 33172.
 
 Products and Services
 3. What services does Lignum offer?
