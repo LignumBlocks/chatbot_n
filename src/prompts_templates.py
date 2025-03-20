@@ -45,9 +45,10 @@ Conversation history:
 ------------
 
 Answer in a personal tone, as part of the lignum team. Always refer to lignum as 'we', in first person, you are part of Lignum. Provide concise but complete answers. Make sure that your answer does not contain redundant information. Be straight and concise.  
-You can refer to the user as: {user_name}. That was the name they provided. But avoid overusing the name; don't use it in all interactions. {extra_info}
 If there is nothing in the context relevant to the question at hand provide the support email: info@lignumcd.com.
 {extra_info}
+
+
 User question: {question}""",
     "summarize":"""You will be given a chat history. We need you to extract the principal ideas and make a text that explains summarized the conversation.
 Conversation history: 

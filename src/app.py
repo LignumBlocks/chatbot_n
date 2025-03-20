@@ -54,7 +54,6 @@ def login():
 @jwt_required()
 def woodxel_chatbot():
     data = request.get_json()
-    print(data)
     if not data or 'input' not in data or 'history' not in data or 'user_name' not in data:
         return jsonify({"message": "Missing required fields"}), 400
     try:
@@ -70,13 +69,10 @@ def woodxel_chatbot():
 @jwt_required()
 def lignum_chatbot():
     data = request.get_json()
-    print(data)
     if not data or 'input' not in data or 'history' not in data or 'user_name' not in data:
         return jsonify({"message": "Missing required fields"}), 400
     try:
-        print('before chat')
         chat = LignumChatbot(user_name=data['user_name'])
-        print('chat')
         result = chat.chat_with_history(data['input'], data['history'])
         return jsonify({"response": result}), 200
     except Exception as e:
@@ -89,7 +85,6 @@ def lignum_chatbot():
 @jwt_required()
 def summarize_conversation():
     data = request.get_json()
-    print(data)
     if not data or 'history' not in data:
         return jsonify({"message": "Missing required fields: 'history'"}), 400
     try:
