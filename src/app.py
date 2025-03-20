@@ -74,7 +74,9 @@ def lignum_chatbot():
     if not data or 'input' not in data or 'history' not in data or 'user_name' not in data:
         return jsonify({"message": "Missing required fields"}), 400
     try:
+        print('before chat')
         chat = LignumChatbot(user_name=data['user_name'])
+        print('chat')
         result = chat.chat_with_history(data['input'], data['history'])
         return jsonify({"response": result}), 200
     except Exception as e:
